@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365dcf8c-aab4-4eb3-9a4b-a61eda4a611f" name="Changes" comment="start" />
+    <list default="true" id="365dcf8c-aab4-4eb3-9a4b-a61eda4a611f" name="Changes" comment="start">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/dashbord_banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashbord_banner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.php" beforeDir="false" afterPath="$PROJECT_DIR$/test2.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +22,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Digitalia" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -128,7 +136,10 @@
       <workItem from="1674542545194" duration="3838000" />
       <workItem from="1674552046537" duration="2560000" />
       <workItem from="1674554776030" duration="14984000" />
-      <workItem from="1674571528645" duration="1927000" />
+      <workItem from="1674571528645" duration="3137000" />
+      <workItem from="1674588060876" duration="1521000" />
+      <workItem from="1674613131780" duration="2005000" />
+      <workItem from="1674616471225" duration="5266000" />
     </task>
     <servers />
   </component>

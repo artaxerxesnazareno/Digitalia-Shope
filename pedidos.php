@@ -77,14 +77,14 @@ if (!isset($_SESSION['UsuarioID'])) header('Location: index.php');
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list ">
 
-                    <li >
+                    <li>
                         <a href="admin/index.php">CONTROLER</a>
                     </li>
                     <li class="active">
                         <a href="pedidos.php">PEDIDOS</a>
                     </li>
-                    <li >
-                        <a href="dashbordUploadBanner.php">BANNER</a>
+                    <li>
+                        <a href="dashbord_banner.php">BANNERS</a>
                     </li>
                 </ul>
 
@@ -95,101 +95,98 @@ if (!isset($_SESSION['UsuarioID'])) header('Location: index.php');
 
     <!-- PAGE CONTAINER-->
 
-<div class="page-container">
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
+    <div class="page-container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
 
-            <th>Id</th>
-            <th>cliente</th>
-            <th>Produto</th>
+                <th>Id</th>
+                <th>cliente</th>
+                <th>Produto</th>
 
-            <th>cidade</th>
-            <th>endereco</th>
-            <th>Quantidade</th>
-            <th>preco</th>
-            <th>Estado</th>
+                <th>cidade</th>
+                <th>endereco</th>
+                <th>Quantidade</th>
+                <th>preco</th>
+                <th>Estado</th>
 
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="tr-shadow" scope="row">
-            <?php
-$resultado4 = mysqli_query($cnx, "SELECT pedido.*, usuarios.nome AS nome_usuarios, 
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="tr-shadow" scope="row">
+                <?php
+                $resultado4 = mysqli_query($cnx, "SELECT pedido.*, usuarios.nome AS nome_usuarios, 
 produtos.precoUnitario,produtos.nome AS nome_produtos FROM pedido
 INNER JOIN usuarios
 ON pedido.idusuarios = usuarios.id INNER 
 JOIN produtos
 ON pedido.idprodutos= produtos.id; ") or die (mysqli_error());
 
-//$produto = $data['id'];
-//echo "produto ".$data['id']."";
+                //$produto = $data['id'];
+                //echo "produto ".$data['id']."";
 
-// Verificar se a consulta retornou algum resultado
-if (mysqli_num_rows($resultado4) > 0) {
-    // Percorrer cada linha do resultado
-    while ($data = mysqli_fetch_assoc($resultado4)) {
-        // Processar os dados da linha aqui
-        // Por exemplo, imprimir os valores das colunas
+                // Verificar se a consulta retornou algum resultado
+                if (mysqli_num_rows($resultado4) > 0) {
+                    // Percorrer cada linha do resultado
+                    while ($data = mysqli_fetch_assoc($resultado4)) {
+                        // Processar os dados da linha aqui
+                        // Por exemplo, imprimir os valores das colunas
 
-        $total = number_format($data['precoUnitario'] * $data['qtd'], 2, ',', '.');
-
-
+                        $total = number_format($data['precoUnitario'] * $data['qtd'], 2, ',', '.');
 
 
+                        echo "<td>" . $data['id'] . "</td>
+              <td>" . $data['nome_usuarios'] . "</td>
+              <td>" . $data['nome_produtos'] . "</td>
+              <td>" . $data['cidade'] . "</td>
+              <td>" . $data['endereco'] . "</td>
+              <td>" . $data['qtd'] . "</td>
+              <td>" . $total . "</td>";
+                        echo "<td>";
+                        if (isset($_POST[$data['id']])) {
+                            $estado = (int)$_POST[$data['id']];
+                        } else {
+                            $estado = 1;
+                        }
+                        if ($estado == 3 or $data['vendido']) {
+                            // se o estado for 4, desabilita o botão
+                            echo '<button disabled class="btn btn-success">Entregue</button>';
 
-        echo "<td>".$data['id']."</td>
-              <td>".$data['nome_usuarios']."</td>
-              <td>".$data['nome_produtos']."</td>
-              <td>".$data['cidade']."</td>
-              <td>".$data['endereco']."</td>
-              <td>".$data['qtd']."</td>
-              <td>".$total."</td>";
-        echo "<td>";
-        if (isset($_POST[$data['id']])) {
-            $estado = (int)$_POST[$data['id']];
-        } else {
-            $estado = 1;
-        }
-        if ($estado == 3 or $data['vendido']) {
-            // se o estado for 4, desabilita o botão
-            echo '<button disabled class="btn btn-success">Entregue</button>';
+                            // Crie a consulta INSERT
+                            $sql = "UPDATE`pedido` SET vendido =1 where id=" . $data['id'] . "";
+                            mysqli_query($cnx, $sql);
+                        } else {
+                            // se o estado não for 4, exibe o botão e armazena o estado atual no formulário
+                            echo '<form method="post">';
+                            if ($estado == 1) {
+                                echo '<button name="botao" class="btn btn-primary">';
+                                $estado++;
+                                echo 'Enviar ';
+                            } else if ($estado == 2) {
+                                echo '<button name="botao" class="btn btn-warning">';
+                                $estado++;
+                                echo 'Enviando';
+                            } else if ($estado == 3) {
+                                $estado++;
+                                echo 'Entregue';
+                            }
+                            echo '</button>';
+                            echo '<input type="hidden" name="' . $data['id'] . '" value="' . $estado . '">';
+                            echo '</form>';
+                        }
+                        echo "</td>";
 
-            // Crie a consulta INSERT
-            $sql = "UPDATE`pedido` SET vendido =1 where id=".$data['id']."";
-            mysqli_query($cnx, $sql);
-        } else {
-            // se o estado não for 4, exibe o botão e armazena o estado atual no formulário
-            echo '<form method="post">';
-            if ($estado == 1) {
-                echo '<button name="botao" class="btn btn-primary">';
-                $estado++;
-                echo 'Enviar ';
-            } else if ($estado == 2) {
-                echo '<button name="botao" class="btn btn-warning">';
-                $estado++;
-                echo 'Enviando';
-            } else if ($estado == 3) {
-                $estado++;
-                echo 'Entregue';
-            }
-            echo '</button>';
-            echo '<input type="hidden" name="'.$data['id'].'" value="' . $estado . '">';
-            echo '</form>';
-        }
-        echo "</td>";
+                        echo "</tr>";
 
-echo "</tr>";
+                    }
+                } else {
+                    echo "Nenhum resultado encontrado";
+                }
 
-    }
-} else {
-    echo "Nenhum resultado encontrado";
-}
-
-// Fechar a conexão
-mysqli_close($cnx);
-?>
+                // Fechar a conexão
+                mysqli_close($cnx);
+                ?>
 
 
 </body>

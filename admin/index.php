@@ -182,95 +182,95 @@ if (!isset($_SESSION['UsuarioID'])) header('Location: index.php');
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list  ">
 
-                            <li class="active">
-                                <a href="index.php">CONTROLER</a>
-                            </li>
-
-                            <li>
-                                <a href="../pedidos.php">PEDIDOS</a>
-                            </li>
                     <li class="active">
-                        <a href="../dashbordUploadBanner.php">BANNER</a>
+                        <a href="index.php">CONTROLER</a>
                     </li>
-                        </ul>
 
-                    <!--
                     <li>
-                        <a href="chart.php">
-                            <i class="fas fa-chart-bar"></i>Charts</a>
+                        <a href="../pedidos.php">PEDIDOS</a>
                     </li>
                     <li>
-                        <a href="table.php">
-                            <i class="fas fa-table"></i>Tables</a>
-                    </li>
-                    <li>
-                        <a href="form.php">
-                            <i class="far fa-check-square"></i>Forms</a>
-                    </li>
-                    <li>
-                        <a href="calendar.php">
-                            <i class="fas fa-calendar-alt"></i>Calendar</a>
-                    </li>
-                    <li>
-                        <a href="map.php">
-                            <i class="fas fa-map-marker-alt"></i>Maps</a>
-                    </li>
-                    <li class="has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-copy"></i>Pages</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a href="login.php">Login</a>
-                            </li>
-                            <li>
-                                <a href="register.php">Register</a>
-                            </li>
-                            <li>
-                                <a href="forget-pass.php">Forget Password</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-desktop"></i>UI Elements</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <a href="button.php">Button</a>
-                            </li>
-                            <li>
-                                <a href="badge.php">Badges</a>
-                            </li>
-                            <li>
-                                <a href="tab.php">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="card.php">Cards</a>
-                            </li>
-                            <li>
-                                <a href="alert.php">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="progress-bar.php">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="modal.php">Modals</a>
-                            </li>
-                            <li>
-                                <a href="switch.php">Switchs</a>
-                            </li>
-                            <li>
-                                <a href="grid.php">Grids</a>
-                            </li>
-                            <li>
-                                <a href="fontawesome.php">Fontawesome Icon</a>
-                            </li>
-                            <li>
-                                <a href="typo.php">Typography</a>
-                            </li>
-                        </ul>
+                        <a href="dashbord_banner.php">BANNERS</a>
                     </li>
                 </ul>
-            </nav>-->
+
+                <!--
+                <li>
+                    <a href="chart.php">
+                        <i class="fas fa-chart-bar"></i>Charts</a>
+                </li>
+                <li>
+                    <a href="table.php">
+                        <i class="fas fa-table"></i>Tables</a>
+                </li>
+                <li>
+                    <a href="form.php">
+                        <i class="far fa-check-square"></i>Forms</a>
+                </li>
+                <li>
+                    <a href="calendar.php">
+                        <i class="fas fa-calendar-alt"></i>Calendar</a>
+                </li>
+                <li>
+                    <a href="map.php">
+                        <i class="fas fa-map-marker-alt"></i>Maps</a>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-copy"></i>Pages</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="login.php">Login</a>
+                        </li>
+                        <li>
+                            <a href="register.php">Register</a>
+                        </li>
+                        <li>
+                            <a href="forget-pass.php">Forget Password</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-desktop"></i>UI Elements</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="button.php">Button</a>
+                        </li>
+                        <li>
+                            <a href="badge.php">Badges</a>
+                        </li>
+                        <li>
+                            <a href="tab.php">Tabs</a>
+                        </li>
+                        <li>
+                            <a href="card.php">Cards</a>
+                        </li>
+                        <li>
+                            <a href="alert.php">Alerts</a>
+                        </li>
+                        <li>
+                            <a href="progress-bar.php">Progress Bars</a>
+                        </li>
+                        <li>
+                            <a href="modal.php">Modals</a>
+                        </li>
+                        <li>
+                            <a href="switch.php">Switchs</a>
+                        </li>
+                        <li>
+                            <a href="grid.php">Grids</a>
+                        </li>
+                        <li>
+                            <a href="fontawesome.php">Fontawesome Icon</a>
+                        </li>
+                        <li>
+                            <a href="typo.php">Typography</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>-->
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
@@ -304,7 +304,6 @@ ON pedido.idprodutos= produtos.id WHERE pedido.vendido=1; ") or die (mysqli_erro
 
             }
         }
-
 
 
         ?>
@@ -349,7 +348,7 @@ ON pedido.idprodutos= produtos.id WHERE pedido.vendido=1; ") or die (mysqli_erro
                                             <i class="zmdi zmdi-shopping-cart"></i>
                                         </div>
                                         <div class="text">
-                                            <?php echo"<h2>$total_vendido</h2>";
+                                            <?php echo "<h2>$total_vendido</h2>";
                                             ?>
                                             <span>items solid</span>
                                         </div>
@@ -388,7 +387,7 @@ ON pedido.idprodutos= produtos.id WHERE pedido.vendido=1; ") or die (mysqli_erro
                                             <i class="zmdi zmdi-money"></i>
                                         </div>
                                         <div class="text">
-                                            <?php echo "<h2>  kz " .number_format($final, '2', ',', '.')." </h2>";
+                                            <?php echo "<h2>  kz " . number_format($final, '2', ',', '.') . " </h2>";
                                             ?>
                                             <span>total vendido</span>
                                         </div>
